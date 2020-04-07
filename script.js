@@ -355,6 +355,103 @@ for (const cinderelaElement of cinderelas) {
 // Happy END
 
 
+    // Тобі треба зробити компютерний клуб з горою компів.
+    // Має бути загальний клас компа від якого всі будуть наслідуватись.
+    // Мають бути стаціонрані компи, ноутбуки, ультрабуки, моноблоки і так далі.
+    // В деяких компів має бути метод який оновляє йому хартеристики. Деякі компи мають бути з жостики параметрами,
+    // типу ультрабуків в яких ти не можеш нічого міняти.
+    // На кожному компі можна пограти ігри.
+    // Гра також має бути створена як клас з жанорм і симтемними вимогами.
+    // Гру ти передаєш як аргумент в метод. І якшо гра занадто важка для компа,
+    // ти маєш бачити шо її не запустити тут. Якшо вона 1 в 1 як комп, то має бути повідомлення,
+    // що гра лагає. Якшо все чудово, то ти будеш грати в неї без проблем.
+    // Ну і мають бути компи на яких заборонено грати ігри.
+    // Наприклад моноблоки або сервери, які використовуються тільки для роботи
+
+
+
+class Computer {
+    constructor(name, year, company, power,) {
+        this.name = name;
+        this.year = year;
+        this.company = company;
+        this.power = power;
+    }
+
+}
+class Game {
+    constructor(power,ganre,year) {
+        this.power = power;
+        this.ganre = ganre;
+        this.year = year;
+    }
+}
+
+// let game = new Game(3000,'shi-fi',2018);
+// let gameNew = new Game(300,'horror',2010);
+// let gamepad = new Game(10000,'strilialka', 2019);
+let gameHard = new Game(30000,'GTA',2020);
+//let arrayGame = [game,gameNew,gamepad,gameHard];
+console.log(gameHard);
+
+
+class Notebook  extends  Computer {
+    constructor(name,year,company,power) {
+        super(name,year,company,power);
+    }
+    changeBehavior(newYear,newCompany) {
+        this.year += newYear;
+        this.company = newCompany;
+        console.log(this.year, newCompany);
+    }
+}
+
+let notebookHp = new Notebook('HP',2019,'|h/p',3000);
+
+
+class Ultabook extends  Computer {
+    constructor(name,year,company,power) {
+        super(name,year,company,power);
+    }
+}
+
+let ultabook = new Ultabook('Asus',2020,'AsUs',400000);
+
+class Monoblock  extends Computer {
+    constructor(name,year,company,power) {
+        super(name,year,company,power);
+    }
+}
+
+let monoblock = new Monoblock('Apple',2017,'Apple',300);
+
+class Laptop extends Computer {
+    constructor(name,year,company,power) {
+        super(name,year,company,power);
+    }
+
+}
+
+let laptop = new Laptop('Acer', 2010,'Acer',10000);
+
+
+let comps = [laptop,ultabook,notebookHp,monoblock];
+
+for (const count of comps) {
+    if (gameHard.power == count.power) {
+        console.log('Система ' + count.name + ' лагає ти не можеш грати гру! або ноут для роботи');
+    }
+    else if (monoblock) {
+        console.log('Ноут: ' + monoblock.name + ' для роботи!');
+    }
+    else if (gameHard.power > count.power) {
+        console.log('Мала потужність у ' + count.name);
+    }
+     else if (gameHard < count.power){
+        console.log('Грай на ' + count.name);
+    }
+}
+
 
 
 
